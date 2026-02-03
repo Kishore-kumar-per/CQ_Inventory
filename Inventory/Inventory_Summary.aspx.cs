@@ -46,12 +46,12 @@ namespace Inventory
         private void LoadTotalCounts()
         {
             string query = @"
-                SELECT 
-                    COUNT(*) AS Total,
-                    SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
-                    SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
-                    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
-                FROM inventory_Add";
+                //SELECT 
+                //    COUNT(*) AS Total,
+                //    SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
+                //    SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
+                //    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
+                //FROM inventory_Add";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, con))
