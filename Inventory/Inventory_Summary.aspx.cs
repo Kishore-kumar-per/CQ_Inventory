@@ -23,15 +23,15 @@ namespace Inventory
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = @"
-                    SELECT 
-                        Asset_Type,
-                        COUNT(*) AS TotalCount,
-                        SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
-                        SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
-                        SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
-                    FROM inventory_Add
-                    GROUP BY Asset_Type
-                    ORDER BY Asset_Type";
+                    //SELECT 
+                    //    Asset_Type,
+                    //    COUNT(*) AS TotalCount,
+                    //    SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
+                    //    SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
+                    //    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
+                    //FROM inventory_Add
+                    //GROUP BY Asset_Type
+                    //ORDER BY Asset_Type";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
