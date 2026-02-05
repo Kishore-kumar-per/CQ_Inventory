@@ -14,7 +14,7 @@ namespace Inventory
             if (!IsPostBack)
             {
                 LoadSummary();
-                LoadTotalCounts();
+                //LoadTotalCounts();
             }
         }
 
@@ -28,7 +28,7 @@ namespace Inventory
                         COUNT(*) AS TotalCount,
                         SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
                         SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
-                        SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
+                    //    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
                     FROM inventory_Add
                     GROUP BY Asset_Type
                     ORDER BY Asset_Type";
@@ -46,12 +46,12 @@ namespace Inventory
         private void LoadTotalCounts()
         {
             string query = @"
-                SELECT 
-                    COUNT(*) AS Total,
-                    SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
-                    SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
-                    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
-                FROM inventory_Add";
+                //SELECT 
+                //    COUNT(*) AS Total,
+                //    SUM(CASE WHEN Asset_Status = 'Working' THEN 1 ELSE 0 END) AS Working,
+                //    SUM(CASE WHEN Asset_Status = 'Not Working' THEN 1 ELSE 0 END) AS NotWorking,
+                //    SUM(CASE WHEN Asset_Status = 'Ewaste' THEN 1 ELSE 0 END) AS Ewaste
+                //FROM inventory_Add";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, con))
@@ -62,7 +62,7 @@ namespace Inventory
                 {
                     lblTotal.Text = rdr["Total"].ToString();
                     lblWorking.Text = rdr["Working"].ToString();
-                    lblNotWorking.Text = rdr["NotWorking"].ToString();
+                    //lblNotWorking.Text = rdr["NotWorking"].ToString();
                     lblEwaste.Text = rdr["Ewaste"].ToString();
                 }
             }
